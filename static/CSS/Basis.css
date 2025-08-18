@@ -1,0 +1,37 @@
+.navbar {
+    font-family: 'Bank Gothic';
+    background-color: #311f19;
+    border: 5px solid #6f4c3e;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    filter: brightness(200%);
+    color: white; /* Ensures text remains visible on hover */
+}
+
+li a:hover:not(.active) {
+    background-color: #311f19;
+    color: white;
+}
+
+.navbar-brand img {
+    filter: brightness(100%); /* Maintain visibility for brand logo */
+}
+
+/* Optional: Ensure dropdown items are styled consistently */
+.dropdown-menu {
+    background-color: #311f19;
+    border: 1px solid #6f4c3e;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    filter: brightness(200%);
+}

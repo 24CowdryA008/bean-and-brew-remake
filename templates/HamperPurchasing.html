@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean and Brew - The Best of Coffee</title>
+    <link rel="icon" type="image/x-icon" href="bean and brew.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+{% extends "basis.html" %}
+
+{% block content %}
+
+<!-- Seabastian's code don't touch -->
+
+<style>
+    h2 {
+      text-align: center;
+      color: rgb(240, 238, 196);
+      font-size: 50px;
+      font-weight: 200;
+      font-style: oblique;
+      padding-bottom: 40px;
+    }
+
+    .container {
+      position: sticky;
+      background-color: #fdd79d;
+      color: #6f4c3e;
+      border: 1px solid #6f4c3e;
+      border-radius: 10px;
+      padding: 30px;
+      border-width: 7px;
+      line-height: 1.5;
+      font-size: 16px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      margin-right: 0px;
+      margin-left: 275px;
+      margin-top: 20px;
+      margin-bottom: 50px;
+      width: 400px;
+      height: 300px;
+      text-align: center;
+    }
+
+    .container2 {
+      position: sticky;
+      background-color: #fdd79d;
+      color: #6f4c3e;
+      border: 1px solid #6f4c3e;
+      border-radius: 10px;
+      padding: 30px;
+      border-width: 7px;
+      line-height: 1.5;
+      font-size: 16px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      margin-right: 50px;
+      margin-left: 275px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      width: 400px;
+      height: 300px;
+      text-align: center;
+    }
+
+    .container3 {
+      position: sticky;
+      background-color: #fdd79d;
+      color: #6f4c3e;
+      border: 1px solid #6f4c3e;
+      border-radius: 10px;
+      padding: 30px;
+      border-width: 7px;
+      line-height: 1.5;
+      font-size: 16px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      margin-right: 50px;
+      margin-left: 750px;
+      margin-top: 20px;
+      margin-bottom: 50px;
+      width: 400px;
+      height: 300px;
+      text-align: center;
+    }
+   
+    .form-grid {
+      display: grid;
+      display: center;
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 20px;
+    }
+
+</style>
+
+<!-- Code for the background -->
+<style>
+    body {
+        background-image: url("{{ url_for('static', filename='IMG/CoffeeBanner.png') }}");
+        background-size: cover;
+        background-position: center;
+        height: 738px;
+        background-attachment: fixed;
+    }
+</style>
+<!-- Code for the background -->
+
+<h2>Here you are able to purchase hampers that are fully customizable!</h2>
+
+<div class="form-grid">
+   
+    <div class="container">
+        <p><b>Choose what additions you would like to add to your hamper:</b><br><b>(Select multiple)</b></p>
+        <form>
+            <input type="checkbox" id="flowers" name="addidtion1" value="Flowers">
+            <label for="flowers">Flowers</label><br>  
+            
+            <input type="checkbox" id="ribbons" name="addidtion2" value="Ribbons">
+            <label for="ribbons">Ribbons</label><br>  
+            
+            <input type="checkbox" id="varietyofbakedgoods" name="addidtion3" value="Variety of baked goods">
+            <label for="varietyofbakedgoods">Variety of baked goods</label><br> 
+            
+            <input type="checkbox" id="hawkwithnotuah" name="addidtion3" value="Hawk with no tuah">
+            <label for="hawkwithnotuah">Tinsel</label><br> 
+            
+            <input type="checkbox" id="yes" name="addidtion5" value="I understand it now">
+            <label for="yes">Confetti</label><br>
+        </form>
+    </div>
+
+    <!-- Second container: Season -->
+    <div class="container">
+        <p><b>Please select what season you would like your hamper to be themed to:</b></p>
+        <form>
+            <input type="radio" id="spring" name="Season" value="Spring">
+            <label for="spring">Spring</label><br>  
+            
+            <input type="radio" id="summer" name="Season" value="Summer">
+            <label for="summer">Summer</label><br>  
+            
+            <input type="radio" id="autumn" name="Season" value="Autumn">
+            <label for="autumn">Autumn</label><br> 
+            
+            <input type="radio" id="winter" name="Season" value="Winter">
+            <label for="winter">Winter</label><br>
+            
+            <input type="radio" id="none" name="Season" value="None">
+            <label for="none">None</label><br>
+        </form>
+    </div>
+</div>
+
+<div class="form-grid">
+    <!-- Third container: Coffee Beans -->
+    <div class="container2">
+        <p><b>Please select what type of coffee beans you would like in your hamper:</b></p>
+        <form>
+            <input type="radio" id="arabica" name="CoffeeBeans" value="Arabica beans">
+            <label for="Arabica beans">Arabica beans</label><br>  
+            
+            <input type="radio" id="robusta" name="CoffeeBeans" value="Robusta">
+            <label for="robusta">Robusta</label><br>  
+            
+            <input type="radio" id="liberica" name="CoffeeBeans" value="Liberica">
+            <label for="liberica">Liberica</label><br> 
+            
+            <input type="radio" id="excelsa" name="CoffeeBeans" value="Excelsa">
+            <label for="excelsa">Excelsa</label><br>
+            
+            <input type="radio" id="none" name="CoffeeBeans" value="None">
+            <label for="none">None</label><br>
+        </form>
+    </div>
+
+    <!-- Fourth container: Size -->
+    <div class="container2">
+        <p><b>Choose what size you would like your hamper to be:</b></p>
+        <form>
+            <input type="radio" id="small" name="Size" value="Small">
+            <label for="small">Small</label><br>  
+            
+            <input type="radio" id="medium" name="Size" value="Medium">
+            <label for="medium">Medium</label><br>  
+            
+            <input type="radio" id="large" name="Size" value="Large">
+            <label for="large">Large</label><br> 
+        </form>
+    </div>
+</div>
+
+<div class="container3">
+    <p><b>Please choose a delivery option for your hamper:</b></p>
+    <form>
+        <div class="checkbox-grid">
+            <div>
+                <input type="radio" id="pickup" name="donttouch" value="Pick up">
+                <label for="pickup">Collection</label><br>
+            </div>
+            
+            <div>
+                <input type="radio" id="delivery" name="donttouch" value="Delivery">
+                <label for="delivery">Delivery</label><br>  
+            </div>
+        </div>
+        <br><br><br>
+        <button onclick="myFunction()">Click here to submit your order</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var txt;
+                if (confirm("Your order has been placed and recorded!")) {
+                    txt = "Thank you for submitting an order!";
+                } else {
+                    txt = "Thank you for submitting an order!";
+                }
+                document.getElementById("demo").innerHTML = txt;
+            }
+        </script>
+    </form>
+</div>
+<!--sigma skibidi winter arc balkan rage hawk tuah those who know 💀--> 
+
+<!-- Seabastian's code don't touch -->
+
+{% endblock %}
+</body>
+</html>
+
+
+

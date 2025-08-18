@@ -1,0 +1,239 @@
+{% extends "basis.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean and Brew</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #eceac4;
+            margin: 0px;
+            padding: 0;
+            color: #333;
+            background-image: url("{{ url_for('static', filename='IMG/CoffeeBanner.png') }}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        main {
+            padding: 30px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(253, 215, 157, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: #3e3b2e;
+            font-size: 2.2em;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .background-image {
+            background-image: url("{{ url_for('static', filename='IMG/CoffeeBanner.png') }}");
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonials {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+
+        .testimonials h3 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #3e3b2e;
+        }
+
+        .testimonial-item {
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #3e3b2e;
+            color: #fff;
+            font-size: 1.2em;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #000;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <h3>Discover our beverages specially crafted with care to brighten your day.</h3>
+
+        <p>Bean and Brew is an amazing and delightful coffee branch. We are one of the first companies in the UK to use fair-trade coffee and all organic milk for our products.</p>
+
+        <p>Each drink is made exactly to your specifications, providing a personal service. We also offer our trademarked flavoured coffees, breakfast items such as porridge, small sweet treats, and pressed sandwiches.</p>
+
+
+        <style>
+            * {box-sizing: border-box;}
+            body {font-family: Verdana, sans-serif;}
+            .mySlides {display: none;}
+            img {vertical-align: middle;}
+            
+            /* Slideshow container */
+            .slideshow-container {
+              max-width: 1000px;
+              position: relative;
+              margin: auto;
+            }
+            
+            
+            /* Number text (1/3 etc) */
+            .numbertext {
+              color: #f2f2f2;
+              font-size: 12px;
+              padding: 8px 12px;
+              position: absolute;
+              top: 0;
+            }
+            
+            /* The dots/bullets/indicators */
+            .dot {
+              height: 15px;
+              width: 15px;
+              margin: 0 2px;
+              background-color: #bbb;
+              border-radius: 50%;
+              display: inline-block;
+              transition: background-color 0.6s ease;
+            }
+            
+            .active {
+              background-color: #717171;
+            }
+            
+            /* Fading animation */
+            .fade {
+              animation-name: fade;
+              animation-duration: 1.5s;
+            }
+            
+            @keyframes fade {
+              from {opacity: .01} 
+              to {opacity: 1}
+            }
+            
+           
+            @media only screen and (max-width: 300px) {
+              .text {font-size: 11px}
+            }
+            </style>
+            </head>
+            <body>
+            
+
+            
+            <div class="slideshow-container">
+            
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 3</div>
+              <img src="https://coachellavalleylocals.com/wp-content/uploads/2020/09/cafe-food-2048x1280.jpg" style="width:100%">
+              <div class="text"><!--Enter text here--></div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">2 / 3</div>
+              <img src="https://wallpaperaccess.com/full/1320613.jpg" style="width:100%">
+              <div class="text"><!--Enter text here--></div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">3 / 3</div>
+              <img src="https://www.pixelstalk.net/wp-content/uploads/2016/05/Coffee-Wallpapers-High-Quality.jpg" style="width:100%">
+              <div class="text"><!--Enter text here--></div>
+            </div>
+
+            
+            
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+            </div>
+            
+            <script>
+            let slideIndex = 0;
+            showSlides();
+            
+            function showSlides() {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              let dots = document.getElementsByClassName("dot");
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) {slideIndex = 1}    
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+              setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+            </script>
+            
+            </body>
+            </html> 
+
+
+        <a href="{{ url_for('BakedGoods') }}" class="cta-button">Check out our Menu</a>
+
+        <section class="testimonials">
+            <h3>Our customer reviews:</h3>
+            <div class="testimonial-item">"Bean and Brew offers the best coffee I’ve ever had! I can't get enough of their espresso drinks."<br> - Jane D.</div>
+            <div class="testimonial-item">"I love the variety of options, from lattes to iced coffees, and everything tastes amazing."<br> - Mark T.</div>
+            <div class="testimonial-item">"The atmosphere is comfortable, and the staff are always friendly. I highly recommend trying their beverages and pastries."<br> - Sarah W.</div>
+        </section>
+    </main>
+
+</body>
+</html>
+
+{% endblock %}

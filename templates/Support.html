@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "basis.html" %}
+
+{% block content %}
+
+<style>
+
+
+body {
+  background-image: url("{{ url_for('static', filename='IMG/CoffeeBanner.png') }}");
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+
+body {
+    align-items: center;
+    height: 100vh;
+    
+}
+
+
+
+.form-box {
+    background-color: #fdd79d;
+    box-shadow: 0 0 10px rgba(36, 67, 40, 0.8);
+    padding: 15px;
+    border-radius: 18px;
+    width: 500px;
+    align-self: center;
+    margin-left: 100px; 
+
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.radio-group {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+
+}
+
+button {
+    background-color: #3e3b2e;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #000000;
+    border: none;
+    
+}
+
+
+h1{
+text-align: center;
+font-size: 90px;
+margin-bottom: 50px;
+color: #eceac4;
+
+}
+
+.paragraph{
+  margin-left: 102px;
+  color: #eceac4;
+  font-size: 18.2px;
+}
+
+a{
+  text-decoration: none;
+  color: #eceac4;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ffae00;
+}
+
+</style>
+
+
+
+
+<head>
+  <title>Support</title>
+</head>
+<body>
+<h1><b><u>Customer support</u></b></h1>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="paragraph">
+<p><b>Here you can submit a review about our sevices:</b></p>
+</div>
+
+  <div class="form-box">
+
+      <form>
+          <label for="name"><b>Name</b></label>
+          <input type="name">
+
+          <label for="email"><b>Email Address</b></label>
+          <input type="email">
+
+          <label for="phone"><b>Phone No</b></label>
+          <input type="tel">
+
+          <label><b>Are you satisfied with our service?</b></label>
+          <div class="radio-group">
+          <input type="radio" id="yes" name="satisfy" value="yes" checked><label for="yes">Yes</label>
+
+          <input type="radio" id="no" name="satisfy" value="no">
+          <label for="no">No</label>
+          </div>
+
+
+
+          <label for="msg"><b>Write your Suggestions:</b></label>
+
+          <textarea id="msg" name="msg" rows="5" cols="10"></textarea>
+
+          <button type="submit"><b>Submit</b></button>
+      </form>
+  </div>
+
+
+  
+<style>
+
+.footer2 {
+  font-size: 16px;
+  color: #eceac4;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.image img {
+  width: 90px;
+  height: 90px;
+}
+
+footer {
+  background-color: #3e3b2e;
+  color: #eceac4;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer .socials {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.footer2 .socials a {
+  margin: 0 10px;
+  font-size: 30px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 50%;
+  transition: opacity 0.3s;
+}
+
+.footer2 .socials a:hover {
+  opacity: 0.7;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #f72576;
+  color: white;
+}
+
+.copyright {
+  font-size: 14px;
+  margin-top: 20px;
+  color: #eceac4;
+}
+
+.copyright a {
+  color: #eceac4;
+  text-decoration: none;
+}
+
+.copyright a:hover {
+  color: #ffae00;
+}
+
+
+
+
+</style>
+
+
+  
+
+<footer>
+  <div class="image">
+    <img src="{{ url_for('static', filename='IMG/QualityCoffeeCup.png') }}" alt="Quality Coffee Cup">
+  </div>
+  <div class="footer2">
+    <p>Contact us: <strong>BeanAndBrew@outlook.com</strong></p>
+    <p>Follow us on social media:</p>
+    <div class="socials">
+      
+      <a href="https://www.youtube.com/@BeanandBrew-Cafe" class="fa fa-youtube" target="_blank"></a>
+      <a href="https://www.instagram.com/beanandbrewcafe0/" class="fa fa-instagram" target="_blank"></a>
+    
+    </div>
+    <a href="https://www.tiktok.com/@bean_and_brew" target="_blank">Follow us on TikTok!</a>
+    <p>&copy; 2024 BeanAndBrew. All rights reserved.</p>
+    <p><a href="{{ url_for('TermsAndConditions') }}">Read our terms and conditions</a>.</p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+</body>
+{% endblock %}
+</html>

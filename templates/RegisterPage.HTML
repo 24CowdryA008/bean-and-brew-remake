@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "basis.html" %}
+
+{% block content %}
+<head>
+  <title>{% block title %}Register Page{% endblock %}</title>
+</head>
+<body>
+    <form action="action_page.php" method="post">
+        <div class="container">
+          <input type="text" placeholder="Enter Forename" name="forename" required>
+          <br><br>
+          <input type="text" placeholder="Enter Surname" name="surname" required>
+          <br><br>
+          <input type="text" placeholder="Enter E-mail" name="email" required>
+          <br><br>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+          <br><br>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+          <br><br>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+          <br> <br>
+          <input type="checkbox" checked="checked" name="remember"> I agree to the <a href="{{ url_for('TermsAndConditions') }}" style="color: #6f4c3e; text-decoration: underline;">terms and conditions.</a>
+            </label>
+          <br> <br>
+          <button type="submit">Register</button>
+          <br> <br>
+          <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+          <br>
+          <span class="psw"><a href="{{ url_for('LoginPage') }}" style="color: #6f4c3e; text-decoration: underline;">Already have an account? Click here to Login.</a></span>
+          <br>
+        </div>
+      </form>
+
+      <style>
+        .background-image {
+            background-image: url("{{ url_for('static', filename='IMG/CoffeeBanner.png') }}");
+            background-size: cover;
+            background-position: center;        /* Some problem but we are leaving it for now. */
+            height: 950px;
+            /* border-radius: 8px;
+            margin: 20px 20px; */
+        }
+
+        body {
+          background-image: url("{{ url_for('static', filename='IMG/CoffeeBanner.png') }}");
+          background-repeat: no-repeat;
+          background-attachment: fixed;  
+          background-size: cover;
+        }
+
+        .container {
+          top: calc(55% + 30px); /* Offset by half navbar height to move container below it */
+          left: 50%;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          background-color: #FFFFFF;
+          color: #6f4c3e;
+          border: 1px solid #6f4c3e;
+          border-radius: 10px;
+          padding: 30px;
+          border-width: 7px;
+          width: 400px;
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: center;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      }
+      </style>
+</body>
+{% endblock %}
+</html>

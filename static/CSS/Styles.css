@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'Bank Gothic';
+    src: url("{{ url_for('static', filename='Font/BankGothicMediumBT.ttf') }}");
+}
+
+.footer, .BottomFooter{
+    position: sticky;
+    background-color: #4e4c42;
+    color: #e4e5b1;
+    font-size: 50px;
+    width: 100%;   
+}
+
+body {
+    font-family: 'Bank Gothic';
+    margin: 0;
+    padding: 0;
+    background-color: rgb(250, 208, 160);
+    color: #333;
+}
+/* header {
+    background-color: #6f4c3e;
+    color: white;
+    padding: 20px;
+    text-align: center;
+} */
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-family: 'Bank Gothic';
+}
+h2 {
+    font-size: 1.5em;
+    margin: 10px 0 20px;
+    font-family: 'Bank Gothic';
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+/* form {
+    margin: 20px 0;
+} */
+main {
+    padding: 20px;
+    text-align: center;
+}
+/* .background-image {
+    background-image: url("{{ url_for('static', filename='IMG/CoffeeBanner.jpg') }}");
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    border-radius: 8px;
+    margin: 20px 0;
+} */
+footer {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.8em;
+    color: #666;
+    font-family: 'Bank Gothic';
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    font-family: 'Bank Gothic';
+}
+.menu-item {
+    background-color: #311f19;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    width: 200px;
+    color: white;
+    font-family: 'Bank Gothic';
+}
+.menu-item h4 {
+    margin: 10px 0;
+}
+
+/* Login Page */
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    width: 300px; /* Fixed width */
+    border: 2px solid #6f4c3e;
+    border-radius: 5px;
+    font-size: 18px; /* Fixed font size */
+    font-family: 'Bank Gothic';
+}
+button {
+    padding: 10px 15px;
+    background-color: #E4C546;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Fixed font size */
+    transition: background-color 0.3s;
+    font-family: 'Bank Gothic';
+}
+button:hover {
+    background-color: #F3E5AB;
+}
+a{
+    text-decoration: none;
+    color: #6f4c3e;
+    font-family: 'Bank Gothic';
+}
+a:hover {
+    text-decoration: none;
+    color: #977264;
+    font-family: 'Bank Gothic';
+}
+
+/* Lesson Booking */
+
+table-calendar {
+    padding: 10px;
+    width: 250px; /* Fixed width */
+    border: 2px solid #6f4c3e;
+    border-radius: 5px;
+    font-size: 18px; /* Fixed font size */
+    font-family: 'Bank Gothic';
+}
+
+/* Hampers */

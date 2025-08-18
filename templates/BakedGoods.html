@@ -1,0 +1,520 @@
+{% extends "basis.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    @media screen and (max-width: 768px) { /* Target mobile devices */
+      .product-container {
+          grid-template-columns: 1fr; /* Limit to 1 column */
+          justify-content: center; /* Center-align cards */
+          gap: 15px; /* Adjust gap if needed */
+      }
+  
+      .container2 {
+          position: fixed; /* Keep container fixed */
+          top: 20px; /* Adjust vertical position */
+          right: 10px; /* Keep it on the right */
+          width: 80%; /* Scale down for mobile screens */
+          max-width: 300px;
+          z-index: 1000; /* Ensure it stays above other elements */
+          box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5); /* Add a slight shadow for emphasis those who changeGood changes*/
+      }
+  
+      body {
+          padding-bottom: 100px; /* Prevent overlapping content */
+      }
+  }
+
+  @media screen and (max-width: 768px) {
+    .container2-left, .container2-right {
+        width: 90%; /* Expand to near full width */
+        max-width: none; /* Remove fixed max-width */
+        left: 50%; /* Center both containers */
+        transform: translateX(-50%);
+        top: auto; /* Reset top alignment */
+        margin-top: 20px; /* Add spacing between containers */
+    }
+    .container2-right {
+        margin-top: 60px; /* Further spacing for stacking */
+    }
+}
+
+    body {
+      background-image: url("{{ url_for('static', filename='IMG/CoffeeBanner.png') }}");
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+      padding: 0px;
+    }
+
+    h2 {
+        text-align: center;
+        color: bisque;
+        font-size: 50px;
+    }
+
+    .container2-combined {
+      color: #6f4c3e;
+      position: fixed;
+      top: 200px;
+      left: 70%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 600px;
+      z-index: 1000;
+      background-color: #FFFFFF;
+      border: 1px solid #6f4c3e;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+  }
+  
+  .container2-section {
+      padding: 10px;
+      text-align: left;
+  }
+  
+  .container2-button {
+      grid-column: span 2;
+      text-align: center;
+      margin-top: 20px;
+  }
+  
+  .container2-button button {
+      padding: 10px 20px;
+      background-color: #E4C546;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  
+  .container2-button button:hover {
+      background-color: #F3E5AB;
+  }
+
+    .product-container { 
+      display: grid;
+      grid-template-columns: repeat(2, max-content); /* Limit to 2 columns */
+      grid-auto-rows: auto; /* Automatically adjust row height */
+      gap: 0 10px; /* Set vertical gap to 0, horizontal gap to 10px */
+      justify-content: start; /* Align the grid to the left */
+      padding: 10px; /* Add padding around the grid */
+    }
+
+    .product-card {
+        width: 300px;
+        height: 400px;
+        perspective: 1000px; /* This adds a 3D effect */
+    }
+
+    .product-front, .product-back {
+        border: 1px solid #000000;
+        border-radius: 10px;
+        width: 100%;
+        height: 300px;
+        backface-visibility: hidden; /* it prevents the backface from being visible */
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.6s;
+    }
+
+    .product-front {
+        background-color: #6f4c3e;
+    }
+
+    .product-back {
+        background-color: #6f4c3e;
+        transform: rotateY(180deg); /* This rotates the back */
+    }
+
+    .product-card.flipped .product-front {
+        transform: rotateY(180deg); /* this rotates the front when it is flipped */
+    }
+
+    .product-card.flipped .product-back {
+        transform: rotateY(0); /* this rotates the back to the front when it is flipped */
+    }
+
+    img {
+        max-width: 250px;
+        max-height: 250px;
+        object-fit: cover;
+    }
+
+    /* Styling for the Menu Section */
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    .menu-item {
+        max-width: 250px;
+        max-height: 250px;
+        text-align: center;
+        border: 1px solid rgb(0, 0, 0);
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .menu-item h4 {
+        font-size: 18px;
+        color: #ffffff;
+    }
+
+    .menu-item p {
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+  </style>
+</head>
+
+<body>
+    
+  <h2>Here is our wide range of our baked goods and coffees that you can browse through and order.</h2>
+
+  <main>
+    
+    <div class="product-container">
+        
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Espresso</h4>
+                    <p>Rich and bold, perfect for a quick boost.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/Espresso.png') }}" alt="Espresso Image">
+              </div>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Latte</h4>
+                    <p>Creamy and smooth, a classic favorite.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/Latte.png') }}" alt="Latte Image">
+              </div>
+            </div>
+        </div>
+
+        
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Cappuccino</h4>
+                    <p>Perfect balance of espresso, milk, and foam.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/Cappuccino.png') }}" alt="Cappuccino Image">
+              </div>
+            </div>
+        </div>
+
+        
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Cold Brew</h4>
+                    <p>Refreshing and smooth, perfect for warm days.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/ColdBrew.png') }}" alt="Cold Brew Image">
+              </div>
+            </div>
+        </div>
+
+        
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Pumpkin Spice Latte</h4>
+                    <p>A themed delight made specially for the spooky season.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/PSL.png') }}" alt="Pumpkin Spice Latte Image">
+              </div>
+            </div>
+        </div>
+
+        
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Frappé</h4>
+                    <p>A sweet and delicious taste with a dessert-like feel.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/Frappe.png') }}" alt="Frappé Image">
+              </div>
+            </div>
+        </div>
+
+        
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Hot Chocolate</h4>
+                    <p>An old-fashioned treat designed for a comforting evening.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/HotChoc.png') }}" alt="Hot Chocolate Image">
+              </div>
+            </div>
+        </div>
+
+        
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Fruit Smoothie</h4>
+                    <p>A healthy blend of tangy berries, made with 100% fruit.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/FS.png') }}" alt="Fruit Smoothie Image">
+              </div>
+            </div>
+        </div>
+
+      
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Croissant</h4>
+                    <p>The classic french swirl of pastry that gives off a nostalgic feel.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/Croissant.png') }}" alt="Croissant Image">
+              </div>
+            </div>
+        </div>
+
+        
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Bagel</h4>
+                    <p>The perfect morning snack, amazing with butter.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/Bagel.png') }}" alt="Bagel Image">
+              </div>
+            </div>
+        </div>
+
+        
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Cinnamon Roll</h4>
+                    <p>A delicious sweet-tasting pastry, hailed as a classic everywhere.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/CR.png') }}" alt="Cinnamon Roll Image">
+              </div>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Millionaire Shortbread</h4>
+                    <p>A shortbread base with a decadent caramel and chocolate topping.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/MS.png') }}" alt="Millionaire Shortbread Image">
+              </div>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Blueberry Muffin</h4>
+                    <p>Filled with blueberry sauce, topped with blueberries.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/BMuffin.png') }}" alt="Blueberry Muffin Image">
+              </div>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Triple-Chocolate Cookie</h4>
+                    <p>Baked with dark, milk and white chocolate pieces.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/TCCCookie.png') }}" alt="Triple-Chocolate Cookie Image">
+              </div>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <div class="product-card" onclick="flipCard(this)">
+              <div class="product-front">
+                <div class="menu-item">
+                    <h4>Chocolate Muffin</h4>
+                    <p>Perfectly baked with gooey chocolate chunks.</p>
+                </div>
+              </div>
+              <div class="product-back">
+                <img src="{{ url_for('static', filename='IMG/BakedGoodsIMG/CMuffin.png') }}" alt="Chocolate Muffin Image">
+              </div>
+            </div>
+        </div>
+
+    </div>
+  </main>
+
+
+
+
+
+  <div class="container2-combined">
+    <div class="container2-section container2-left">
+        <p><b>Please select what baked good(s) you would like to order:</b></p>
+        <form>
+            <input type="checkbox" id="Croissant" name="addition1" value="Croissant"> 
+            <label for="Croissant">Croissant</label> <br>  
+                
+            <input type="checkbox" id="Bagel" name="addition2" value="Bagel"> 
+            <label for="Bagel">Bagel</label> <br>  
+                
+            <input type="checkbox" id="Cinnamon Roll" name="addition3" value="Cinnamon Roll"> 
+            <label for="Cinnamon Roll">Cinnamon Roll</label> <br> 
+
+            <input type="checkbox" id="Chocolate Muffin" name="addition6" value="Chocolate Muffin"> 
+            <label for="Chocolate Muffin">Chocolate Muffin</label> <br>
+                
+            <input type="checkbox" id="Millionaire Shortbread" name="addition4" value="Millionaire Shortbread"> 
+            <label for="Millionaire Shortbread">Millionaire Shortbread</label> <br>
+                
+            <input type="checkbox" id="Blueberry Muffin" name="addition5" value="Blueberry Muffin"> 
+            <label for="Blueberry Muffin">Blueberry Muffin</label> <br>
+
+            <input type="checkbox" id="Triple-Chocolate Cookie" name="addition5" value="Triple-Chocolate Cookie"> 
+            <label for="Triple-Chocolate Cookie">Triple-Chocolate Cookie</label> <br>
+        </form>
+    </div>
+
+    <div class="container2-section container2-right">
+        <p><b>Please select what beverage(s) you would like to order:</b></p>
+        <form>
+            <input type="checkbox" id="Espresso" name="addition1" value="Espresso"> 
+            <label for="Espresso">Espresso</label> <br>  
+                
+            <input type="checkbox" id="Latte" name="addition2" value="Latte"> 
+            <label for="Latte">Latte</label> <br>  
+                
+            <input type="checkbox" id="Cappuccino" name="addition3" value="Cappuccino"> 
+            <label for="Cappuccino">Cappuccino</label> <br> 
+                
+            <input type="checkbox" id="Cold Brew" name="addition4" value="Cold Brew"> 
+            <label for="Cold Brew">Cold Brew</label> <br>
+                
+            <input type="checkbox" id="Pumpkin Spice Latte" name="addition5" value="Pumpkin Spice Latte"> 
+            <label for="Pumpkin Spice Latte">Pumpkin Spice Latte</label> <br>
+
+            <input type="checkbox" id="Frappé" name="addition6" value="Frappé"> 
+            <label for="Frappé">Frappé</label> <br>
+
+            <input type="checkbox" id="Hot Chocolate" name="addition7" value="Hot Chocolate"> 
+            <label for="Hot Chocolate">Hot Chocolate</label> <br>
+
+            <input type="checkbox" id="Fruit Smoothie" name="addition8" value="Fruit Smoothie"> 
+            <label for="Fruit Smoothie">Fruit Smoothie</label> <br>
+        </form>
+    </div>
+
+    <div class="container2-button">
+        <button onclick="myFunction()">Click here to submit your order</button>
+        <p id="demo"></p>
+    </div>
+</div>
+                
+                </form>
+                
+                <br>
+                <br>
+                <br>
+
+                <p id="demo"></p>
+                    
+                <script>
+                function myFunction() {
+                    var txt;
+                    if (confirm("Your order has been placed and recorded!")) {
+                    txt = "Thank you for submitting an order!";
+                    } else {
+                    txt = "Thank you for submitting an order!";
+                    }
+                    document.getElementById("demo").innerHTML = txt;
+                    }
+                    </script>
+
+                </div>
+        </div>
+
+
+<div class="BottomFooter">
+
+
+
+</div>
+
+</body>
+</html>
+
+
+
+{% endblock %}
