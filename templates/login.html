@@ -5,32 +5,39 @@
 {% block content %}
 <head>
   <title>{% block title %}Login Page{% endblock %}</title>
-
   <link rel="icon" type="image/png" href="/static/IMG/CoffeeCup.png">
-
 </head>
 <body>
-    <form action="action_page.php" method="post">
+    <!-- Point form to Flask login route -->
+    <form action="{{ url_for('LoginPage') }}" method="post">
         <div class="container">
+          <!-- username/email input -->
           <input type="text" placeholder="Enter Username/E-mail" name="uname" required>
-          <br> <br>
-          <input type="password" placeholder="Enter Password" name="uname" required>
           <br><br>
-          <span class="psw"><a href="#" target="_blank" >Forgot password?</a></span>
+
+          <!-- password input -->
+          <input type="password" placeholder="Enter Password" name="psw" required>
+          <br><br>
+
+          <span class="psw"><a href="#" target="_blank">Forgot password?</a></span>
           <br>
+
           <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
+            <input type="checkbox" name="remember"> Remember me
           </label>
-          <br> <br>
+          <br><br>
+
           <button type="submit">Login</button>
-          <br> <br>
-          <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-          <br>
-          <span class="psw"><a href="{{ url_for('RegisterPage') }}" style="color: #6f4c3e; text-decoration: underline;">Don't have an account? Click here to register</a></span>
+          <br><br>
+
+          <span class="psw">
+            <a href="{{ url_for('register') }}" style="color: #6f4c3e; text-decoration: underline;">
+              Don't have an account? Click here to register
+            </a>
+          </span>
           <br>
         </div>
       </form>
-
 
       <style>
         body {
@@ -40,7 +47,7 @@
           background-size: cover;
         }
         .container {
-          top: calc(55% + 30px); /* Offset by half navbar height to move container below it */
+          top: calc(55% + 30px); /* Offset by half navbar height */
           left: 50%;
           position: absolute;
           transform: translate(-50%, -50%);
@@ -55,9 +62,8 @@
           font-size: 16px;
           text-align: center;
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-      }
-        </style>
-
+        }
+      </style>
 </body>
 {% endblock %}
 </html>

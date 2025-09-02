@@ -12,9 +12,8 @@ CREATE TABLE IF NOT EXISTS users (
     surname TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
     username TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL,
-    age INTEGER
-   )
+    password TEXT NOT NULL
+)
     ''')
 
     connection.commit()
