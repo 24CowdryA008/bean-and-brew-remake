@@ -28,7 +28,20 @@
             Bean and Brew Coffee<br>
             BeanAndBrewCafe@outlook.com<br>
             01491 520685</p>
-        <button type="submit">I agree</button>
+        <button onclick="myFunction()">I agree</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var txt;
+                if (confirm("You have agreed to our terms and conditions! Thank you!")) {
+                    txt = "Thank you for agreeing to our terms and conditions!";
+                } else {
+                    txt = "Thank you for agreeing to our terms and conditions!";
+                }
+                document.getElementById("demo").innerHTML = txt;
+            }
+        </script>
+        
         <br> <br>
         <!-- <button type="button" class="cancelbtn">Cancel</button> -->
     </div>

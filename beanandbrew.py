@@ -79,6 +79,12 @@ def register():
 
     return render_template("register.html")
 
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash("You have been logged out.", "info")
+    return redirect(url_for("login"))
+
 @app.route("/BakedGoods")
 def BakedGoods():
     return render_template("BakedGoods.html")
@@ -93,4 +99,4 @@ def TermsAndConditions():
 
 if __name__=="__main__": # Make's it so when you run the website and make changes, you don't have to restart it
     app.run(debug=True)
-
+    
